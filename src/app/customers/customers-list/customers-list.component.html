@@ -1,30 +1,28 @@
-<app-filter-textbox></app-filter-textbox>
+<app-filter-textbox (changed)="filter($event)"></app-filter-textbox>
 <br />
 <br />
 <table class="table table-hover">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>City</th>
-            <th>Order Total</th>
+            <th (click)="sort('name')">Name</th>
+            <th (click)="sort('city')">City</th>
+            <th (click)="sort('orderTotal')">Order Total</th>
         </tr>
     </thead>
-    <tr>
-        <td>
-            <a>
-            </a>
-        </td>
-        <td></td>
-        <td>
+    <tr *ngFor="let customer of filteredCustomers">
+        <td><a>{{ customer.name | capitalise }}</a></td>
+        <td>{{ customer.city }}</td>
+        <td>{{ customer.orderTotal | currency:currencyCode:'symbol' }}</td>
     </tr>
-    <tr>
+    <tr *ngIf="filteredCustomers && filteredCustomers.length">
         <td colspan="2">&nbsp;</td>
         <td>
-           
+           {{ customersOrderTotal  | currency:currencyCode:'symbol' }}
         </td>
     </tr>
-    <tr >
+    <tr *ngIf="!filteredCustomers || !filteredCustomers.length">
         <td colspan="4">No customers found</td>
     </tr>
 </table>
+Number of customers {{ filteredCustomers.length}}
 <br />
