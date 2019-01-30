@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 
+import { CapitalisePipe } from './capitalise.pipe';
+
 @NgModule({
-  declarations: [],
-  exports: []
+  declarations: [CapitalisePipe],
+  exports: [CapitalisePipe]
 })
 export class SharedModule { 
 
