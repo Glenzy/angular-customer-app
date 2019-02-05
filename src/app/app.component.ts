@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  template:`<app-customers></app-customers>`
+  template:`<router-outlet></router-outlet>`
 })
 export class AppComponent implements OnInit {
   constructor(){
